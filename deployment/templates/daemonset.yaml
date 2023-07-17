@@ -44,6 +44,7 @@ spec:
     spec:
       priorityClassName: {{ .Values.priorityClassName | default "system-node-critical" }}
       {{- if .Values.hostNetwork }}
+      runtimeClassName: {{ .Values.runtimeClassName }}
       hostNetwork: {{ .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
       {{- end }}
