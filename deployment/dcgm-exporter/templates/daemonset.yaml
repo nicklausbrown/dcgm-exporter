@@ -43,8 +43,8 @@ spec:
       {{- end }}
     spec:
       priorityClassName: {{ .Values.priorityClassName | default "system-node-critical" }}
-      {{- if .Values.hostNetwork }}
       runtimeClassName: {{ .Values.runtimeClassName }}
+      {{- if .Values.hostNetwork }}
       hostNetwork: {{ .Values.hostNetwork }}
       dnsPolicy: ClusterFirstWithHostNet
       {{- end }}
@@ -83,7 +83,6 @@ spec:
       {{- end }}
       containers:
       - name: exporter
-        runtimeClassName: {{ .Values.runtimeClassName }}
         securityContext:
           {{- toYaml .Values.securityContext | nindent 10 }}
         {{- if .Values.image.tag }}
