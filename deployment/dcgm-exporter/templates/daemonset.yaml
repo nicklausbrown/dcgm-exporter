@@ -83,6 +83,7 @@ spec:
       {{- end }}
       containers:
       - name: exporter
+        runtimeClassName: {{ .Values.runtimeClassName }}
         securityContext:
           {{- toYaml .Values.securityContext | nindent 10 }}
         {{- if .Values.image.tag }}
